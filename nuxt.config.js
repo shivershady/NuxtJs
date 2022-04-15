@@ -25,7 +25,8 @@ export default {
   plugins: [
     '~/plugins/axios',
     '~/plugins/repositories',
-    {src:'@/plugins/vue-splide.client', ssr: false}
+    {src:'@/plugins/vue-splide.client', ssr: false},
+    {src:'@/plugins/alert', ssr:false}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -50,5 +51,16 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   },
-
+  serverMiddleware: [
+    '~/serverMiddleware'
+  ],
+  router:{
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: '/my-home',
+        path: '/my-home',
+        component: resolve(__dirname,'pages/index.vue')
+      })
+    },
+  }
 }

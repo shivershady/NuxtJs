@@ -5,5 +5,5 @@ import ProductRepo from "./ProductRepo";
 export default ($axios)=>({
     home : HomeRepo($axios),
     category: CategoryRepo($axios),
-    product: ProductRepo($axios)
+    product: ProductRepo($axios),
 })
